@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .forms import NumForm #htmlのinputで事足りるからいらん
 # Create your views here.
 
 def numform(request):

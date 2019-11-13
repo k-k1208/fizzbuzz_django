@@ -1,18 +1,27 @@
 from django.shortcuts import render
+from .forms import NumForm
 # Create your views here.
 
 def numform(request):
-    return render(request, 'num_form.html')
+    numform_by_forms = NumForm()  # forms.Formで作ったform
+    params = {
+        'numform_by_forms': numform_by_forms
+    }
+    return render(request, 'num_form.html', params)
 
 def result(request):
-    numform = int(request.POST['number'])
+    print(request.POST)
+    numform = int(request.POST['num'])
+    comment = request.POST['comment']
+
     result_list = []
     for i in range(1, numform+1):
         judge = fizz_buzz_judge(i)
         result_list.append(judge)
     params = {
         'numform': numform,
-        'result_list': result_list,
+        'comment': comment,
+        'result_list': result_list
     }
     return render(request, 'result.html', params)
 

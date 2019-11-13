@@ -6,8 +6,7 @@
     <form action="{% url 'result' %}" method="post">
         {% csrf_token %}
 <!--        <label>数値を入力せえ:<input type="number" name="number"></label>-->
-        <p>コメント：{{numform_by_forms.comment}}</p>
-        <p>数値：{{numform_by_forms.num}}</p>
+        {{numform_by_forms.as_p}}
         <input type="submit" value="fizzbuzzをする送信ボタンやでぇ">
     </form>
 </div>
